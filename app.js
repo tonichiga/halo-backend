@@ -18,6 +18,9 @@ app.set("view engine", "ejs");
 
 app.use(logger("dev"));
 app.use(express.static(path.join(__dirname, "public")));
+app.use(cookieParser());
+app.use(express.json({ limit: 15000 })); // лимит объема файла (можно увеличить или удалить)
+app.use(express.urlencoded({ extended: false }));
 app.use("/", indexRouter);
 
 app.use(function (req, res, next) {

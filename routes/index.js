@@ -10,4 +10,12 @@ router.get("/", function (req, res, next) {
   });
 });
 
+router.post("/", function (req, res, next) {
+  const item = req.body;
+  return res.json({
+    status: "success",
+    data: item,
+  });
+});
+
 module.exports = router;
